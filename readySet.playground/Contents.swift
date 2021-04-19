@@ -1,14 +1,15 @@
 /*:
 # { readySet
  
- Welcome to readySet! This is a quick playground experience designed to teach people about set theory, one of the coolest branches in the study of mathematics. Join Seth in this magical journey and discover amazing things about math sets. **Are you ready to set?**
+ Welcome to readySet! This is a quick playground experience designed to teach people about set theory, one of the coolest branches in the study of mathematics. Join Seth in this magical journey and discover amazing things about math sets, together.
  
  ___
- - 􀥒 This playground uses sound, be free to turn up the volume!
+ - 􀥒 This playground uses sound, feel free to turn up the volume!
  - 􀀃 This playground is optimized for both light and dark mode.
+ - 􀫺 Also, please make sure to resize the Live View so that all content is shwing up at the screen.
  ___
  
-## Cheatsheet
+## Cheatsheet 􀥅
 ### General
  - **Set theory:** the branch of mathematics that studies sets.
  - **Set:** a collection of non-repeatable objects. (not to be confused with **Seth**, a very nice robot creature that will help you in your journey)
@@ -23,7 +24,7 @@
  - **Three-way diagram 􀟗:** a diagram containing three sets A, B and C that all share a same subset of elements. Its center can be expressed by **A ∩ B ∩ C**.
  
  ___
- **Open-source elements used in this playground:**
+ **Open-source components used in this playground:**
  -  [Raleway](https://www.theleagueofmoveabletype.com/raleway) is a font made by Matt McInerney;
  - [IrregularGradient](https://github.com/joogps/IrregularGradient) is a Swift Package built by me and made available via the MIT License;
  - TrackingAreaView, which was _proudly adapted_ from [this article](https://swiftui-lab.com/a-powerful-combo/) from The SwiftUI Lab.
@@ -31,6 +32,8 @@
  - Visual assets made with [Sketch](https://www.sketch.com)
  - Music and sound effects made with [Logic Pro](https://www.apple.com/logic-pro/)
  ___
+ 
+ built with ❤️ by @joogps
  
  __#StaySafe__
 */

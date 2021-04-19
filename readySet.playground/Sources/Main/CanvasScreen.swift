@@ -41,7 +41,7 @@ struct CanvasScreen: View {
             let heightRange = abs(state.height) < abs(nextValue.height) ? abs(state.height)...abs(nextValue.height) : abs(nextValue.height)...abs(state.height)
             
             if (widthRange.contains(100) || widthRange.contains(115) || widthRange.contains(125) || abs(nextValue.width) > 130) || (heightRange.contains(100) || heightRange.contains(115) || heightRange.contains(125) || abs(nextValue.height) > 130) {
-                NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .default)
+                NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
             }
             
             state = nextValue
@@ -50,7 +50,7 @@ struct CanvasScreen: View {
             state = max(min(normalized/pow(2, normalized/500+1), 2), 0.5)
             
             if state > 1.95 || state < 0.55 {
-                NSHapticFeedbackManager.defaultPerformer.perform(.levelChange, performanceTime: .default)
+                NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
             }
         })
     }

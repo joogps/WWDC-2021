@@ -230,7 +230,7 @@ struct HUDView: View {
                     }
                 })
             case .complexIntersectionExplanation: HUDMessageView(text: "Yay, this one is my favorite! 🙃/\n\nYou see, you've now created a complex kind of intersection./ In fact, there are two intersections here, and they are only tied because of the set in the middle!/ Doesn't it look.../ a bit olympic to you? ", nextPhase: .containment)
-            case .containment: HUDMessageView(text: "Alright!/ Ready for more?/\n\nHave you wondered what would happen if a set contains all of the elementes of another set?/\n\nQuick tip: you can empty the canvas to make this task easier.", onAppear: {
+            case .containment: HUDMessageView(text: "Alright!/ Ready for more?/\n\nHave you wondered what would happen if a set contained all of the elements of another set?/\n\nQuick tip: you can empty the canvas to make this task easier.", onAppear: {
                 helpState = {
                     playgroundData.currentSets = [UserMathSet(style: setStyles[2], elements: [2, 3, 5]), UserMathSet(style: setStyles[3], elements: [2, 3, 5, 6, 7, 11])]
                     playgroundData.parseSets()
@@ -250,7 +250,7 @@ struct HUDView: View {
                     return nil
                 }
             })
-            case .containmentExplanation: HUDMessageView(text: "I love it! 💕/\n\nThis one is actually very straight-forward: since one of the sets contains the other, this is also represented in the diagram./A set can also contain multiple sets, or even an intersection. This relationship can be expressed by \((playgroundData.parsedObjects.first { $0 is MathContainment } as? MathContainment)?.description ?? "A ⊂ B")  ", nextPhase: .threeway)
+            case .containmentExplanation: HUDMessageView(text: "I love it! 💕/\n\nThis one is actually very straight-forward: since one of the sets contains the other, this is also represented in the diagram./ A set can also contain multiple sets, or even an intersection. This relationship can be expressed by \((playgroundData.parsedObjects.first { $0 is MathContainment } as? MathContainment)?.description ?? "A ⊂ B")  ", nextPhase: .threeway)
             case .threeway: HUDMessageView(text: "Now we're wrapping up! 🎁/\n\nFor this final task, think of how you could make three sets share a same subset of elements. Impress me!/\n\nPro tip: to make it look really nice, try making all sets the exact same size.", onAppear: {
                 helpState = {
                     playgroundData.currentSets = [UserMathSet(style: setStyles[2], elements: [2, 3, 5]), UserMathSet(style: setStyles[0], elements: [3, 5, 7]), UserMathSet(style: setStyles[1], elements: [5, 7, 11])]
@@ -799,7 +799,7 @@ struct HUDMessageView: View {
                     playgroundData.currentCanvasPhase = nextPhase!
                 }
             })
-        }, arrowPosition: .bottomTrailing, lineWidth: 10.0, innerPadding: 15)
+        }, arrowPosition: .bottomTrailing, lineWidth: 10.0, innerPadding: 16)
         .font(Font.custom("Raleway", size: 16).weight(.semibold))
         .transition(AnyTransition.scale(scale: 0.5, anchor: .bottomTrailing).combined(with: .opacity))
         .offset(y: offsetMovement*2.5)

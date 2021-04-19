@@ -60,7 +60,7 @@ struct TitleScreen: View {
             Text("Swift Student Challenge '21")
                 .font(Font(getFontWithAlignedNumbers(font: "Raleway", size: 25)).weight(.medium))
             Spacer()
-            Text("created by @joogps")
+            Text("built with 􀊵 by @joogps")
                 .font(.custom("Raleway", size: 19))
                 .foregroundColor(Color(.systemGray))
         }.padding(40)
