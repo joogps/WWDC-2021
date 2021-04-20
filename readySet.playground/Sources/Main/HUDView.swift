@@ -250,7 +250,7 @@ struct HUDView: View {
                     return nil
                 }
             })
-            case .containmentExplanation: HUDMessageView(text: "I love it! 💕/\n\nThis one is actually very straight-forward: since one of the sets contains the other, this is also represented in the diagram./ A set can also contain multiple sets, or even an intersection. This relationship can be expressed by \((playgroundData.parsedObjects.first { $0 is MathContainment } as? MathContainment)?.description ?? "A ⊂ B")  ", nextPhase: .threeway)
+            case .containmentExplanation: HUDMessageView(text: "I love it! 💕/\n\nThis one is actually very straight-forward: since one of the sets contains the other, this is also represented in the diagram./ A set can also contain multiple sets, or even an intersection./ This relationship can be expressed by \((playgroundData.parsedObjects.first { $0 is MathContainment } as? MathContainment)?.description ?? "A ⊂ B")  ", nextPhase: .threeway)
             case .threeway: HUDMessageView(text: "Now we're wrapping up! 🎁/\n\nFor this final task, think of how you could make three sets share a same subset of elements. Impress me!/\n\nPro tip: to make it look really nice, try making all sets the exact same size.", onAppear: {
                 helpState = {
                     playgroundData.currentSets = [UserMathSet(style: setStyles[2], elements: [2, 3, 5]), UserMathSet(style: setStyles[0], elements: [3, 5, 7]), UserMathSet(style: setStyles[1], elements: [5, 7, 11])]
@@ -412,8 +412,8 @@ struct HUDView: View {
                     .foregroundColor(currentSetStyle.color)
             }.buttonStyle(PlainButtonStyle())
         }.aspectRatio(1.0, contentMode: .fit)
-        .disabled(playgroundData.currentSets.count >= setStyles.count-1)
-        .help("Send")
+        .disabled(playgroundData.currentSets.count >= 3)
+        .help(playgroundData.currentSets.count < 3 ? "Send" : "Limit reached")
     }
     
     func addSet() {

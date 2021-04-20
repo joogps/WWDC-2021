@@ -40,13 +40,13 @@ struct TitleScreen: View {
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now()+3.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+3.85) {
                 withAnimation {
                     animationState = .logo
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now()+4.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+5) {
                 withAnimation {
                     animationState = .grid
                 }

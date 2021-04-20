@@ -85,8 +85,6 @@ struct TypewriterText: View {
     }
 }
 
-// I'm not proud of this.
-
 struct SpeechBubble: Shape {
     let arrowPosition: SpeechBubbleArrowPosition
     

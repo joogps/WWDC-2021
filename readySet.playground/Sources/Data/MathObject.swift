@@ -1,3 +1,5 @@
+// This file houses the various objects that are part of the system
+
 import SwiftUI
 
 protocol MathObject {

@@ -51,8 +51,6 @@ class DataModel: ObservableObject {
         currentPreviousStateIsRedo = false
     }
     
-    // Not proud of this messy algorithm either.
-    
     func parseSets() {
         parsedObjects = []
         
@@ -184,7 +182,7 @@ class DataModel: ObservableObject {
 
 struct UserMathSet: Equatable {
     static func == (lhs: UserMathSet, rhs: UserMathSet) -> Bool {
-        lhs.elements == rhs.elements
+        lhs.elements == rhs.elements && lhs.style == rhs.style
     }
     
     var style: (name: String, color: Color)
