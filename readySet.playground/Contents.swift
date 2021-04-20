@@ -25,9 +25,9 @@
  
  ___
  **Open-source components used in this playground:**
- -  [Raleway](https://www.theleagueofmoveabletype.com/raleway) is a font made by Matt McInerney;
- - [IrregularGradient](https://github.com/joogps/IrregularGradient) is a Swift Package built by me and made available via the MIT License;
- - TrackingAreaView, which was _proudly adapted_ from [this article](https://swiftui-lab.com/a-powerful-combo/) from The SwiftUI Lab.
+ -  [Raleway](https://www.theleagueofmoveabletype.com/raleway) a font created by Matt McInerney and made available via the Open Font License;
+ - [IrregularGradient](https://github.com/joogps/IrregularGradient) a Swift Package built by me and made available via the MIT License;
+ - TrackingAreaView, an adapted code snippet from [this article](https://swiftui-lab.com/a-powerful-combo/) from The SwiftUI Lab.
  ___
  - Visual assets made with [Sketch](https://www.sketch.com)
  - Music and sound effects made with [Logic Pro](https://www.apple.com/logic-pro/)
