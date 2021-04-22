@@ -11,5 +11,5 @@ ___
 
 <img src="../assets/screenshot_6.png" width="230"> <img src="../assets/screenshot_7.png" width="230"> <img src="../assets/screenshot_8.png" width="230">
 
-### Oh, and dark mode.
+### Oh, and there's also dark mode.
 <img src="../assets/screenshot_9.png" width="350"> <img src="../assets/screenshot_10.png" width="350"> <img src="../assets/screenshot_11.png" width="350"> <img src="../assets/screenshot_12.png" width="350">
