@@ -13,3 +13,7 @@ ___
 
 ### Oh, and there's dark mode.
 <img src="../assets/screenshot_9.png" width="350"> <img src="../assets/screenshot_10.png" width="350"> <img src="../assets/screenshot_11.png" width="350"> <img src="../assets/screenshot_12.png" width="350">
+
+___
+
+You can find my accepted WWDC20 Swift Student Challenge Submission [here](https://github.com/joogps/WWDC-2020).
