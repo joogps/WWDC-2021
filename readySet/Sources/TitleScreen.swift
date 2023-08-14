@@ -125,7 +125,7 @@ struct TitleScreen: View {
             
             if animationState == .grid {
                 Button(action: exitTitle, label: {
-                    Text("press ⌘R to begin")
+                    Text("press \(Image(systemName: "command"))R to begin")
                         .font(Font.custom("Raleway", size: 22).weight(.semibold))
                         .foregroundColor(.white)
                         .shadow(color: Color.black.opacity(0.1), radius: 10, x: 5, y: 5)
