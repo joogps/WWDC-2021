@@ -245,7 +245,7 @@ struct MathIntersectionPopoverView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 5) {
-                Text("Intersection 􀫲")
+                Text("Intersection \(Image(systemName: "circlebadge.2"))")
                     .font(.system(size: 19, weight: .semibold))
                     .lineLimit(1)
                 Text(intersection.description)
@@ -267,7 +267,7 @@ struct MathContainmentPopoverView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 5) {
-                Text("Containment 􀍷")
+                Text("Containment \(Image(systemName: "smallcircle.filled.circle"))")
                     .font(.system(size: 19, weight: .semibold))
                     .lineLimit(1)
                 Text(containment.description)
@@ -295,7 +295,7 @@ struct MathThreewayPopoverView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 5) {
-                Text("Three-way diagram 􀟗")
+                Text("Three-way diagram \(Image(systemName: "camera.filters"))")
                     .font(.system(size: 19, weight: .semibold))
                     .lineLimit(nil)
                 Text(threeway.description)

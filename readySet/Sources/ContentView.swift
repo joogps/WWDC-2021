@@ -7,8 +7,6 @@ struct ContentView: View {
     @ObservedObject var playgroundData = DataModel()
     @Namespace private var animation
     
-    @State var background: AVAudioPlayer? = createPlayer(for: "Background")
-    
     @State var window: NSWindow?
     
     var body: some View {
@@ -19,8 +17,8 @@ struct ContentView: View {
             case .intro:
                 IntroScreen(animation: animation)
                     .onAppear {
-                        background?.numberOfLoops = -1
-                        background?.play()
+                        Sounds.background?.numberOfLoops = -1
+                        Sounds.background?.play()
                     }
             case.canvas:
                 CanvasScreen(animation: animation)

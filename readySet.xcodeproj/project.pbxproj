@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27AAD5CD2A8AACA4006AD1C4 /* Sounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AAD5CC2A8AACA4006AD1C4 /* Sounds.swift */; };
 		27F4FEAA2A89C48A0009CE72 /* readySetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F4FEA92A89C48A0009CE72 /* readySetApp.swift */; };
 		27F4FEAE2A89C48B0009CE72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F4FEAD2A89C48B0009CE72 /* Assets.xcassets */; };
 		27F4FEB12A89C48B0009CE72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F4FEB02A89C48B0009CE72 /* Preview Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27AAD5CC2A8AACA4006AD1C4 /* Sounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sounds.swift; sourceTree = "<group>"; };
 		27F4FEA62A89C48A0009CE72 /* readySet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = readySet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F4FEA92A89C48A0009CE72 /* readySetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = readySetApp.swift; sourceTree = "<group>"; };
 		27F4FEAD2A89C48B0009CE72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				27F4FECB2A89C4A10009CE72 /* ContentView.swift */,
 				27F4FEB92A89C4A10009CE72 /* IntroScreen.swift */,
 				27F4FEC42A89C4A10009CE72 /* TitleScreen.swift */,
+				27AAD5CC2A8AACA4006AD1C4 /* Sounds.swift */,
 				27F4FEBA2A89C4A10009CE72 /* External */,
 				27F4FEC52A89C4A10009CE72 /* Main */,
 				27F4FEC82A89C4A10009CE72 /* Data */,
@@ -365,6 +368,7 @@
 				27F4FED92A89C4A10009CE72 /* MathObject.swift in Sources */,
 				27F4FED42A89C4A10009CE72 /* TrackingAreaView.swift in Sources */,
 				27F4FF792A8A3EF40009CE72 /* HostingWindowAccessor.swift in Sources */,
+				27AAD5CD2A8AACA4006AD1C4 /* Sounds.swift in Sources */,
 				27F4FED12A89C4A10009CE72 /* SpeechView.swift in Sources */,
 				27F4FECE2A89C4A10009CE72 /* Modifiers.swift in Sources */,
 			);
@@ -494,7 +498,7 @@
 				CODE_SIGN_ENTITLEMENTS = readySet/readySet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"readySet/Preview Content\"";
 				DEVELOPMENT_TEAM = V9F4J6KX54;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -523,7 +527,7 @@
 				CODE_SIGN_ENTITLEMENTS = readySet/readySet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"readySet/Preview Content\"";
 				DEVELOPMENT_TEAM = V9F4J6KX54;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -16,8 +16,6 @@ struct IntroScreen: View {
     let setC = MathSet(userSet: UserMathSet(style: (name: "C", color: Color.playgroundTheme.yellow), elements: [115, 70, 20, 67, 18, 96]))
     let setD = MathSet(userSet: UserMathSet(style: (name: "D", color: Color.playgroundTheme.orange), elements: [1.2, 1.4, 1.6, 1.8, 2.0]))
     
-    @State var bubbleSounds = [createPlayer(for: "Bubble 1"), createPlayer(for: "Bubble 2"), createPlayer(for: "Bubble 3")]
-    
     var body: some View {
         ZStack {
             colorScheme == .dark ? Color.playgroundTheme.gray : Color.playgroundTheme.white
@@ -38,12 +36,12 @@ struct IntroScreen: View {
             case .know: IntroMessageView(text: "Now, don't get me wrong: I'm pretty sure YOU already know a LOT about set theory./ But I promise this will be fun nonetheless!", nextPhase: .remember, animation: animation)
             case .remember: IntroMessageView(text: "However, juuuust to remember, set theory is the branch of mathematics that studies.../ well, sets.", nextPhase: .sets, animation: animation)
             case .sets: IntroMessageView(text: "A set is a collection of non-repeatable objects./\n\nAnd, in fact, these objects can be anything you want them to be!/ In most cases though, these objects will be something relevant to the study of math (such as numbers or even sets themselves).", nextPhase: .defined, animation: animation)
-            case .defined: IntroMessageView(text: "Sets can be defined with 􀫲 shapes and diagrams, or via special notations, always between 􀡅 curly braces./ You can see some examples displayed around my magic speech bubble.  ", nextPhase: .talking, completion: {
+            case .defined: IntroMessageView(text: "Sets can be defined with shapes and diagrams, or via special notations, always between 􀡅 curly braces./ You can see some examples displayed around my magic speech bubble.  ", nextPhase: .talking, completion: {
                     withAnimation(.spring()) {
                         showingExamples = true
                     }
                 }, animation: animation)
-            case .talking: IntroMessageView(text: "Enough of me talking though, what about going to the real deal?// Click on 􀁭 or press the right arrow key to access the 􀮋 Canvas.  ", nextPhase: .talking, action: {
+            case .talking: IntroMessageView(text: "Enough of me talking though, what about going to the real deal?// Click on the button below or press the right arrow key to access the Canvas.  ", nextPhase: .talking, action: {
                     withAnimation(.spring()) {
                         playgroundData.currentScreen = .canvas
                     }
@@ -68,7 +66,7 @@ struct IntroScreen: View {
     }
     
     func playBubbleSound() {
-        let player = bubbleSounds.randomElement()!
+        let player = Sounds.bubbleSounds.randomElement()!
         player?.playFromBeginning()
     }
 }

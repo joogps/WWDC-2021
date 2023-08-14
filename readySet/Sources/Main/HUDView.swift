@@ -38,22 +38,6 @@ struct HUDView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @State var openMenuSound: AVAudioPlayer? = createPlayer(for: "Open")
-    @State var closeMenuSound: AVAudioPlayer? = createPlayer(for: "Close")
-    @State var fileSelectMenuSound: AVAudioPlayer? = createPlayer(for: "File select")
-    @State var emptyMenuSound: AVAudioPlayer? = createPlayer(for: "Empty")
-    @State var helpMenuSound: AVAudioPlayer? = createPlayer(for: "Help")
-    @State var undoMenuSound: AVAudioPlayer? = createPlayer(for: "Undo")
-    @State var redoMenuSound: AVAudioPlayer? = createPlayer(for: "Redo")
-    
-    @State var bubbleSounds = [createPlayer(for: "Bubble 1"), createPlayer(for: "Bubble 2"), createPlayer(for: "Bubble 3")]
-    
-    @State var simpleSetSound = createPlayer(for: "Simple")
-    @State var intersectionContainmentSetSound = createPlayer(for: "Intersection : Containment")
-    @State var complexIntersectionContainmentSetSound = createPlayer(for: "Complex Intersection : Containment")
-    @State var threewaySetSound = createPlayer(for: "Three-way")
-    @State var emptySetSound = createPlayer(for: "Empty set")
-    
     var body: some View {
         ZStack {
             if spotlight != nil {
@@ -125,8 +109,8 @@ struct HUDView: View {
     var messages: some View {
         if playgroundData.currentCanvasPhase != nil {
             switch playgroundData.currentCanvasPhase! {
-            case .welcome: HUDMessageView(text: "/Welcome to the 􀮋 Canvas!/ Here is where you will play with sets. ", nextPhase: .panAndZoom, animation: animation)
-            case .panAndZoom: HUDMessageView(text: "There's plenty of free space to explore, but you can 􀧐 pan and 􀊬 zoom with drags and mouse gestures if you feel like it!  ", nextPhase: .buttons)
+            case .welcome: HUDMessageView(text: "/Welcome to the Canvas!/ Here is where you will play with sets. ", nextPhase: .panAndZoom, animation: animation)
+            case .panAndZoom: HUDMessageView(text: "There's plenty of free space to explore, but you can pan and zoom with drags and mouse gestures if you feel like it! ", nextPhase: .buttons)
             case .buttons: HUDMessageView(text: "There are a few important buttons and displays up at the top that will be very helpful soon! ", nextPhase: .toolbar, onAppear: {
                     withAnimation {
                         spotlight = .buttons
@@ -137,7 +121,7 @@ struct HUDView: View {
                         spotlight = .toolbar
                     }
                 })
-            case .type: HUDMessageView(text: "Okay, let's get going!/ To add items to a set, just 􀇳 type the numbers you want in the input field, separated by commas. ", onAppear: {
+            case .type: HUDMessageView(text: "Okay, let's get going!/ To add items to a set, just type the numbers you want in the input field, separated by commas. ", onAppear: {
                     withAnimation {
                         spotlight = nil
                     }
@@ -155,7 +139,7 @@ struct HUDView: View {
                         }
                     }
                 })
-            case .send: HUDMessageView(text: "Now hit 􀁧 or return to send your set to the.../ set.../ manager. ", onAppear: {
+            case .send: HUDMessageView(text: "Now hit the arrow button below or press return to send your request to the.../ set.../ machine. ", onAppear: {
                     helpState = {
                         if textElements.count >= 3 {
                             addSet()
@@ -208,7 +192,7 @@ struct HUDView: View {
                         return nil
                     }
                 })
-            case .intersectionExplanation: HUDMessageView(text: "Hooray!/\nYou're on fire! 🔥/\n\nThis new diagram that resulted from your creation is called an 􀫲 Intersection!/ The section in the middle of it can be represented by \((playgroundData.parsedObjects.first { $0 is MathIntersection } as? MathIntersection)?.description.prefix(5) ?? "A ∩ B").  ", nextPhase: .complexIntersection)
+            case .intersectionExplanation: HUDMessageView(text: "Hooray!/\nYou're on fire! 🔥/\n\nThis new diagram that resulted from your creation is called an intersection!/ The section in the middle of it can be represented by \((playgroundData.parsedObjects.first { $0 is MathIntersection } as? MathIntersection)?.description.prefix(5) ?? "A ∩ B").  ", nextPhase: .complexIntersection)
             case .complexIntersection: HUDMessageView(text: "Let's hurry up cause there's still a lot to go through!/\n\nNow you should try to create a third set, so that it shares elements with only one of those intersecting ones.", onAppear: {
                     helpState = {
                         playgroundData.currentSets = [UserMathSet(style: setStyles[0], elements: [2, 3, 5]), UserMathSet(style: setStyles[1], elements: [5, 7, 11]), UserMathSet(style: setStyles[2], elements: [11, 13, 17])]
@@ -229,7 +213,7 @@ struct HUDView: View {
                         return nil
                     }
                 })
-            case .complexIntersectionExplanation: HUDMessageView(text: "Yay, this one is my favorite! 🙃/\n\nYou see, you've now created a complex kind of intersection./ In fact, there are two intersections here, and they are only tied because of the set in the middle!/ Doesn't it look.../ a bit olympic to you? ", nextPhase: .containment)
+            case .complexIntersectionExplanation: HUDMessageView(text: "Yay, this one is my favorite! 🙃/\n\nYou see, you've now created a complex kind of intersection./ In fact, there are two intersections here, and they are tied because of the set in the middle!/ Doesn't it look.../ a bit olympic to you? ", nextPhase: .containment)
             case .containment: HUDMessageView(text: "Alright!/ Ready for more?/\n\nHave you wondered what would happen if a set contained all of the elements of another set?/\n\nQuick tip: you can empty the canvas to make this task easier.", onAppear: {
                 helpState = {
                     playgroundData.currentSets = [UserMathSet(style: setStyles[2], elements: [2, 3, 5]), UserMathSet(style: setStyles[3], elements: [2, 3, 5, 6, 7, 11])]
@@ -289,7 +273,7 @@ struct HUDView: View {
     }
     
     func playBubbleSound() {
-        let player = bubbleSounds.randomElement()!
+        let player = Sounds.bubbleSounds.randomElement()!
         player?.playFromBeginning()
     }
     
@@ -427,21 +411,21 @@ struct HUDView: View {
             
             if let set = playgroundData.parsedObjects.last as? MathSet {
                 if set.elements.count == 0 {
-                    emptySetSound?.playFromBeginning()
+                    Sounds.emptySetSound?.playFromBeginning()
                 } else {
-                    simpleSetSound?.playFromBeginning()
+                    Sounds.simpleSetSound?.playFromBeginning()
                 }
             } else if let intersection = playgroundData.parsedObjects.last as? MathIntersection {
                 if intersection.lhs is MathIntersection || intersection.rhs is MathIntersection
                     || intersection.lhs is MathContainment || intersection.rhs is MathContainment {
-                    complexIntersectionContainmentSetSound?.playFromBeginning()
+                    Sounds.complexIntersectionContainmentSetSound?.playFromBeginning()
                 } else {
-                    intersectionContainmentSetSound?.playFromBeginning()
+                    Sounds.intersectionContainmentSetSound?.playFromBeginning()
                 }
             } else if playgroundData.parsedObjects.last is MathContainment {
-                intersectionContainmentSetSound?.playFromBeginning()
+                Sounds.intersectionContainmentSetSound?.playFromBeginning()
             } else {
-                threewaySetSound?.playFromBeginning()
+                Sounds.threewaySetSound?.playFromBeginning()
             }
             
             
@@ -479,9 +463,9 @@ struct HUDView: View {
             Button(action: {
                 if playgroundData.currentPreviousState != nil {
                     if playgroundData.currentPreviousStateIsRedo {
-                        redoMenuSound?.playFromBeginning()
+                        Sounds.redoMenuSound?.playFromBeginning()
                     } else {
-                        undoMenuSound?.playFromBeginning()
+                        Sounds.undoMenuSound?.playFromBeginning()
                     }
                     
                     let newPreviousState = playgroundData.currentSets
@@ -520,7 +504,7 @@ struct HUDView: View {
                 VStack(spacing: 5) {
                     ForEach(playgroundData.userSetFiles) { file in
                         Button(action: {
-                            fileSelectMenuSound?.playFromBeginning()
+                            Sounds.fileSelectMenuSound?.playFromBeginning()
                             withAnimation(.easeInOut(duration: 0.1)) {
                                 playgroundData.currentFileIndex = playgroundData.userSetFiles.firstIndex(of: file)!
                                 playgroundData.parseSets()
@@ -556,7 +540,7 @@ struct HUDView: View {
                     }.buttonStyle(PlainButtonStyle())
                     
                     Button(action: {
-                        emptyMenuSound?.playFromBeginning()
+                        Sounds.emptyMenuSound?.playFromBeginning()
                         
                         playgroundData.setPreviousState()
                         
@@ -593,7 +577,7 @@ struct HUDView: View {
                 
                 Spacer()
                 Button(action: {
-                    helpMenuSound?.playFromBeginning()
+                    Sounds.helpMenuSound?.playFromBeginning()
                     
                     if helpState != nil {
                         helpState!()
@@ -613,7 +597,7 @@ struct HUDView: View {
     }
     
     func openMenu(menu: HUDMenus) {
-        openMenuSound?.playFromBeginning()
+        Sounds.openMenuSound?.playFromBeginning()
         withAnimation(.spring(response: 0.35, dampingFraction: 0.65)) {
             currentMenu = menu
         }
@@ -621,7 +605,7 @@ struct HUDView: View {
     
     func dismissMenu() {
         if currentMenu != nil {
-            closeMenuSound?.playFromBeginning()
+            Sounds.closeMenuSound?.playFromBeginning()
             
             withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
                 currentMenu = nil

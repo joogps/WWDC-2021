@@ -18,9 +18,6 @@ struct TitleScreen: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @State var theme: AVAudioPlayer? = createPlayer(for: "Theme")
-    var exit: AVAudioPlayer? = createPlayer(for: "Exit")
-    
     var body: some View {
         ZStack {
             if animationState >= .background {
@@ -31,8 +28,8 @@ struct TitleScreen: View {
                 splash
             }
         }.onAppear {
-            theme?.numberOfLoops = -1
-            theme?.play()
+            Sounds.theme?.numberOfLoops = -1
+            Sounds.theme?.play()
             
             DispatchQueue.main.asyncAfter(deadline: .now()+8.5) {
                 start()
@@ -41,19 +38,21 @@ struct TitleScreen: View {
     }
     
     func start() {
-        withAnimation {
-            animationState = .background
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+1.6) {
+        if animationState == .splash {
             withAnimation {
-                animationState = .logo
+                animationState = .background
             }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+2.75) {
-            withAnimation {
-                animationState = .grid
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+1.6) {
+                withAnimation {
+                    animationState = .logo
+                }
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+2.75) {
+                withAnimation {
+                    animationState = .grid
+                }
             }
         }
     }
@@ -136,8 +135,8 @@ struct TitleScreen: View {
     }
     
     func exitTitle() {
-        theme?.pause()
-        exit?.play()
+        Sounds.theme?.pause()
+        Sounds.exit?.play()
         
         withAnimation(Animation.spring(response: 0.85, dampingFraction: 0.8).delay(0.85)) {
             animationState = .exit
